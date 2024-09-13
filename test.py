@@ -22,7 +22,7 @@ test_reboiler_duty = Application.Tree.FindNode(r"\Data\Blocks\N-640\Input\QN").V
 print(f"Reboiler Duty before: {test_reboiler_duty}")
 
 # Change variables
-new_reboiler_duty = test_reboiler_duty + 10000
+new_reboiler_duty = test_reboiler_duty + 20000
 print(f"Modifying Reboiler Duty to {new_reboiler_duty}")
 Application.Tree.FindNode(r"\Data\Blocks\N-640\Input\QN").Value = new_reboiler_duty
 
