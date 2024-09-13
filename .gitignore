@@ -1,2 +1,5 @@
-*.apwz
+.venv/*
 RECAP*/
+RECAP*
+*.dmp
+_*.*
