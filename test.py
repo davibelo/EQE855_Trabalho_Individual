@@ -19,18 +19,22 @@ Application.InitFromArchive2(aspen_Path)
 Application.visible = 1
 
 # Example: Reading input and output variables
-test_temp = Application.Tree.FindNode("\Data\Streams\G-ACID\Output\TEMP_OUT\MIXED").Value
+test_temp = Application.Tree.FindNode(r"\Data\Streams\G-ACID\Output\TEMP_OUT\MIXED").Value
 print(f"temperature: {test_temp} °C")
 
-# # Example: Modifying a variable
-# Application.Tree.FindNode(r'\Data\Blocks\N-640\Input\QR').Value = 565000
+# Example: Reading output after simulation
+test_mass_frac = Application.Tree.FindNode(r"\Data\Streams\AGUAPR1\Output\MASSFRAC\MIXED\H2S").Value
+print(f"Mass Fraction H2S: {test_mass_frac}")
 
-# # Run the simulation after changing input variables
-# Application.Engine.Run2()
+# Example: Modifying a variable
+Application.Tree.FindNode(r"\Data\Blocks\N-640\Input\QN").Value = 565000
 
-# # Example: Reading output after simulation
-# mass_frac = Application.Tree.FindNode(r'\Data\Streams\AGUAPR1\Output\MASSFRAC\MIXED\H2S')
-# print(f"Mass Fraction H2S: {mass_frac}")
+# Run the simulation after changing input variables
+Application.Engine.Run2()
+
+# Example: Reading output after simulation
+test_mass_frac = Application.Tree.FindNode(r"\Data\Streams\AGUAPR1\Output\MASSFRAC\MIXED\H2S").Value
+print(f"Mass Fraction H2S: {test_mass_frac}")
 
 # Close the Aspen simulation
 Application.Close()
