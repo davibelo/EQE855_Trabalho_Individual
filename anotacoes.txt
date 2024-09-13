@@ -1,0 +1,49 @@
+
+rev 0 
+modificadas especificacoes abaixo
+M645 
+calc mode Design
+spec cold stream outlet 85.3C
+N640 
+dist to feed ratio 0.9
+J643 
+pressure increase 28,065bar
+apagada 3a corrente de agua tratada
+simulacao rodando
+
+rev A
+
+rev B
+modificada para estática
+
+rev C
+mudando unidade de engenharia
+especificando vazão de carga bypass M644
+
+rev D
+rodando ok
+
+revE 
+adicionando controle T de entrada
+não deu certo...
+
+revF
+migrado para V14.2 CP1
+
+revG
+adicionado design spec de t carga
+
+revH
+alterado h2s na carga para mass-frac
+geradas curvas de temp estimadas para convergencia das torres
+alterado métodos de convergencia para broyden
+testando limites N640
+min reboiler duty tested 500.000
+max reboiler duty tested 700.000
+
+revI
+montado otimizador e analise de sensibilidade h2s na torre 1
+sensibilidade bem sucedida
+
+revJ 
+tentando
