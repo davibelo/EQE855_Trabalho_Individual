@@ -46,4 +46,5 @@ montado otimizador e analise de sensibilidade h2s na torre 1
 sensibilidade bem sucedida
 
 revJ 
-tentando
+desativada analise sensibilidade
+alterado para EO

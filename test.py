@@ -1,7 +1,7 @@
 import os
 import win32com.client as win32
 
-file = r"RECAP_revJ\RECAP_revJ.bkp"
+file = r"RECAP_revK.bkp"
 aspen_Path = os.path.abspath(file)
 
 print('Connecting to the Aspen Plus... Please wait ')
@@ -17,6 +17,7 @@ print(f"temperature: {test_temp} °C")
 
 test_mass_frac = Application.Tree.FindNode(r"\Data\Streams\AGUAPR1\Output\MASSFRAC\MIXED\H2S").Value
 print(f"Mass Fraction H2S before: {test_mass_frac}")
+print(type(test_mass_frac))
 
 test_reboiler_duty = Application.Tree.FindNode(r"\Data\Blocks\N-640\Input\QN").Value
 print(f"Reboiler Duty before: {test_reboiler_duty}")
