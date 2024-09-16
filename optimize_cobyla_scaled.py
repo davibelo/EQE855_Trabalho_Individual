@@ -169,7 +169,7 @@ ax1.scatter(opt[0], opt[1], cost_min, color='blue', s=100, label='Optimal Point'
 ax1.set_xlabel('QN1')
 ax1.set_ylabel('QN2')
 ax1.set_zlabel('Objective Function (Total Cost)')
-ax1.set_title('QN1 vs QN2 vs Objective Function')
+ax1.set_title('QN1 vs QN2 vs Objective Function', pad=20)  # Add padding to title
 ax1.legend()
 
 # Plot 2: QN1 vs QC vs Objective Function
@@ -179,7 +179,7 @@ ax2.scatter(opt[0], opt[2], cost_min, color='blue', s=100, label='Optimal Point'
 ax2.set_xlabel('QN1')
 ax2.set_ylabel('QC')
 ax2.set_zlabel('Objective Function (Total Cost)')
-ax2.set_title('QN1 vs QC vs Objective Function')
+ax2.set_title('QN1 vs QC vs Objective Function', pad=20)  # Add padding to title
 ax2.legend()
 
 # Plot 3: QN2 vs QC vs Objective Function
@@ -189,16 +189,16 @@ ax3.scatter(opt[1], opt[2], cost_min, color='blue', s=100, label='Optimal Point'
 ax3.set_xlabel('QN2')
 ax3.set_ylabel('QC')
 ax3.set_zlabel('Objective Function (Total Cost)')
-ax3.set_title('QN2 vs QC vs Objective Function')
+ax3.set_title('QN2 vs QC vs Objective Function', pad=20)  # Add padding to title
 ax3.legend()
 
-# Adjust layout to prevent overlap
-plt.tight_layout()
+# Adjust the overall layout with margins to avoid trimming
+plt.subplots_adjust(left=0.05, right=0.95, top=0.90, bottom=0.10, wspace=0.3)
 
 # Save the combined figure with the script name
 figure_name = script_name + '_3d_plots.png'
 figure_path = os.path.join(os.getcwd(), figure_name)
-plt.savefig(figure_path)
+plt.savefig(figure_path, bbox_inches='tight')  # Ensure everything fits in the saved image
 
 # Show the figure (optional)
 plt.show()
