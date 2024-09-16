@@ -18,7 +18,7 @@ x0 = [560000, 950000, 3]
 # Scaling factors
 scale_factors = [1e5, 1e5, 1]  # Scaling for QN1, QN2, QC
 
-def simulate(x_scaled):
+def simulate(x_scaled, print_temperature: bool = False):
     x = [x_scaled[0] * scale_factors[0], x_scaled[1] * scale_factors[1], x_scaled[2] * scale_factors[2]]
     QN1, QN2, QC = x
     Application.Tree.FindNode(r"\Data\Blocks\N-640\Input\QN").Value = QN1
@@ -31,6 +31,11 @@ def simulate(x_scaled):
     cNH3_ppm = cNH3 * 1E6
     y = cH2S_ppm, cNH3_ppm
     print(f"Simulating with QN1: {round(QN1,0)}, QN2: {round(QN2,0)}, QC: {round(QC,2)} -> H2S: {round(cH2S_ppm,3)}, NH3: {round(cNH3_ppm,3)}")
+    if print_temperature:
+        T_bottom_N640 = Application.Tree.FindNode(r"\Data\Blocks\N-640\Output\B_TEMP\5").Value
+        T_bottom_N641 = Application.Tree.FindNode(r"\Data\Blocks\N-641\Output\B_TEMP\6").Value
+        T_top_N641 = Application.Tree.FindNode(r"\Data\Blocks\N-641\Output\B_TEMP\2").Value
+        print(f"Temperatures: ", T_bottom_N640, T_bottom_N641, T_top_N641)
     return y
 
 # Objective function to minimize (with scaling)
@@ -120,3 +125,5 @@ print('Number of function evaluations: ', num_function_evals)
 print('Optimization success: ', success)
 print('Message: ', message)
 print('Maximum constraint violation (maxcv): ', maxcv)
+
+simulate(opt, print_temperature=True)
