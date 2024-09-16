@@ -154,39 +154,57 @@ simulate(opt_scaled, print_temperature=True)
 # Close log file
 log_file.close()
 
-# Plot the results (3D plot of QN1, QN2, and objective function)
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-
-# Convert x_values to a format that can be plotted (split QN1, QN2)
+# Convert x_values to a format that can be plotted (split QN1, QN2, QC)
 QN1_values = [x[0] for x in x_values]
 QN2_values = [x[1] for x in x_values]
 QC_values = [x[2] for x in x_values]
 
-# Plot the trajectory of optimization steps
-ax.plot(QN1_values, QN2_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
+# Plot 1: QN1 vs QN2 vs Objective Function
+fig1 = plt.figure()
+ax1 = fig1.add_subplot(111, projection='3d')
+ax1.plot(QN1_values, QN2_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
+ax1.scatter(opt[0], opt[1], cost_min, color='blue', s=100, label='Optimal Point')
+ax1.set_xlabel('QN1')
+ax1.set_ylabel('QN2')
+ax1.set_zlabel('Objective Function (Total Cost)')
+ax1.set_title('QN1 vs QN2 vs Objective Function')
+ax1.legend()
+# Save figure 1
+figure_name1 = script_name + '_qn1_qn2_3d_plot.png'
+figure_path1 = os.path.join(os.getcwd(), figure_name1)
+plt.savefig(figure_path1)
 
-# Plot the optimal point in blue
-optimal_x = opt[0]
-optimal_y = opt[1]
-optimal_z = cost_min
+# Plot 2: QN1 vs QC vs Objective Function
+fig2 = plt.figure()
+ax2 = fig2.add_subplot(111, projection='3d')
+ax2.plot(QN1_values, QC_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
+ax2.scatter(opt[0], opt[2], cost_min, color='blue', s=100, label='Optimal Point')
+ax2.set_xlabel('QN1')
+ax2.set_ylabel('QC')
+ax2.set_zlabel('Objective Function (Total Cost)')
+ax2.set_title('QN1 vs QC vs Objective Function')
+ax2.legend()
+# Save figure 2
+figure_name2 = script_name + '_qn1_qc_3d_plot.png'
+figure_path2 = os.path.join(os.getcwd(), figure_name2)
+plt.savefig(figure_path2)
 
-ax.scatter(optimal_x, optimal_y, optimal_z, color='blue', s=100, label='Optimal Point')
+# Plot 3: QN2 vs QC vs Objective Function
+fig3 = plt.figure()
+ax3 = fig3.add_subplot(111, projection='3d')
+ax3.plot(QN2_values, QC_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
+ax3.scatter(opt[1], opt[2], cost_min, color='blue', s=100, label='Optimal Point')
+ax3.set_xlabel('QN2')
+ax3.set_ylabel('QC')
+ax3.set_zlabel('Objective Function (Total Cost)')
+ax3.set_title('QN2 vs QC vs Objective Function')
+ax3.legend()
+# Save figure 3
+figure_name3 = script_name + '_qn2_qc_3d_plot.png'
+figure_path3 = os.path.join(os.getcwd(), figure_name3)
+plt.savefig(figure_path3)
 
-# Set labels
-ax.set_xlabel('QN1')
-ax.set_ylabel('QN2')
-ax.set_zlabel('Objective Function (Total Cost)')
-
-# Add legend
-ax.legend()
-
-# Save the figure with the script name
-figure_name = script_name + '_3d_plot.png'
-figure_path = os.path.join(os.getcwd(), figure_name)
-plt.savefig(figure_path)
-
-# Display the plot (optional)
+# Show plots (optional)
 plt.show()
 
-print(f'3D plot saved as: {figure_path}')
+print(f'3D plots saved as: {figure_path1}, {figure_path2}, {figure_path3}')
