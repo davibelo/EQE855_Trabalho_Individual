@@ -153,6 +153,7 @@ simulate(opt_scaled, print_temperature=True)
 
 # Close log file
 log_file.close()
+
 # Plot the results (3D plot of QN1, QN2, and objective function)
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
@@ -162,11 +163,23 @@ QN1_values = [x[0] for x in x_values]
 QN2_values = [x[1] for x in x_values]
 QC_values = [x[2] for x in x_values]
 
-# Create the 3D scatter plot
-ax.scatter(QN1_values, QN2_values, objective_values, c='r', marker='o')
+# Plot the trajectory of optimization steps
+ax.plot(QN1_values, QN2_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
+
+# Plot the optimal point in blue
+optimal_x = opt[0]
+optimal_y = opt[1]
+optimal_z = cost_min
+
+ax.scatter(optimal_x, optimal_y, optimal_z, color='blue', s=100, label='Optimal Point')
+
+# Set labels
 ax.set_xlabel('QN1')
 ax.set_ylabel('QN2')
 ax.set_zlabel('Objective Function (Total Cost)')
+
+# Add legend
+ax.legend()
 
 # Save the figure with the script name
 figure_name = script_name + '_3d_plot.png'
