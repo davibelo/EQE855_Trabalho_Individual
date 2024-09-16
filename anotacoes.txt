@@ -48,3 +48,6 @@ sensibilidade bem sucedida
 revJ 
 desativada analise sensibilidade
 alterado para EO
+
+revK
+alterado para mixed

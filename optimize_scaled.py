@@ -33,7 +33,7 @@ def simulate(x_scaled):
     cH2S_ppm = cH2S*1E6
     cNH3_ppm = cNH3*1E6
     y = cH2S_ppm, cNH3_ppm
-    print(f"Simulating with QN1: {QN1}, QN2: {QN2}, QC: {QC} -> H2S: {cH2S_ppm}, NH3: {cNH3_ppm}")
+    print(f"Simulating with QN1: {round(QN1,2)}, QN2: {round(QN2,2)}, QC: {round(QC,2)} -> H2S: {round(cH2S_ppm,2)}, NH3: {round(cNH3_ppm,2)}")
     total_cost = QN1 + QN2 + QC
     print(f"Total Cost: {total_cost}")
     return y
@@ -47,12 +47,12 @@ def cost(x_scaled):
 # Constraint 1 (with scaling)
 def constraint1(x_scaled):
     cH2S_ppm, _ = simulate(x_scaled)
-    return cH2S_ppm - 0.2  # >= 0.2ppm
+    return 0.2 - cH2S_ppm  # <= 0.2ppm
     
 # Constraint 2 (with scaling)
 def constraint2(x_scaled):
     _, cNH3_ppm = simulate(x_scaled)
-    return cNH3_ppm - 15  # >= 15ppm
+    return 15 - cNH3_ppm # <= 15ppm
 
 # Initial guess (with scaling)
 x0_scaled = [x0[i] / scale_factors[i] for i in range(3)]
@@ -62,6 +62,7 @@ bounds_scaled = [(low / scale_factors[i], high / scale_factors[i]) for i, (low, 
 
 # Constraints as a dictionary
 constraints = [{'type': 'ineq', 'fun': constraint1}]
+constraints = [{'type': 'ineq', 'fun': constraint2}]
 
 # Solving the optimization problem with SLSQP
 #result = minimize(cost, x0_scaled, method='SLSQP', bounds=bounds_scaled, constraints=constraints, options={'ftol': 1e-5})
@@ -72,4 +73,14 @@ opt_scaled = result.x
 opt = [opt_scaled[i] * scale_factors[i] for i in range(3)]
 
 # Output results
+
+# Output results
+opt = result.x
+cost_min = result.fun
+num_iterations = result.nit
+num_function_evals = result.nfev
+
 print('Optimal values: ', opt)
+print('Minimum cost: ', cost_min)
+print('Number of iterations: ', num_iterations)
+print('Number of objective function evaluations: ', num_function_evals)

@@ -30,7 +30,7 @@ def simulate(x_scaled):
     cH2S_ppm = cH2S * 1E6
     cNH3_ppm = cNH3 * 1E6
     y = cH2S_ppm, cNH3_ppm
-    print(f"Simulating with QN1: {QN1}, QN2: {QN2}, QC: {QC} -> H2S: {cH2S_ppm}, NH3: {cNH3_ppm}")
+    print(f"Simulating with QN1: {round(QN1,0)}, QN2: {round(QN2,0)}, QC: {round(QC,2)} -> H2S: {round(cH2S_ppm,3)}, NH3: {round(cNH3_ppm,3)}")
     return y
 
 # Objective function to minimize (with scaling)
@@ -39,19 +39,19 @@ def cost(x_scaled):
     total_cost = x[0] + x[1] + x[2]
     return total_cost
 
-# Constraint 1 (H2S PPM >= 0.2)
+# Constraint 1 (H2S PPM <= 0.2)
 def constraint1(x_scaled):
     cH2S_ppm, _ = simulate(x_scaled)
-    return cH2S_ppm - 0.2  # >= 0.2 ppm
+    return 0.2 - cH2S_ppm # >=0
 
-# Constraint 2 (NH3 PPM >= 15)
+# Constraint 2 (NH3 PPM <= 15)
 def constraint2(x_scaled):
     _, cNH3_ppm = simulate(x_scaled)
-    return cNH3_ppm - 15  # >= 15 ppm
+    return 15 - cNH3_ppm  # >=0
 
 # Lower bound constraint for QN1
 def bound_QN1_lower(x_scaled):
-    QN1_lower = 510000
+    QN1_lower = 450000
     return x_scaled[0] - (QN1_lower / scale_factors[0])
 
 # Upper bound constraint for QN1
@@ -61,7 +61,7 @@ def bound_QN1_upper(x_scaled):
 
 # Lower bound constraint for QN2
 def bound_QN2_lower(x_scaled):
-    QN2_lower = 900000
+    QN2_lower = 700000
     return x_scaled[1] - (QN2_lower / scale_factors[1])
 
 # Upper bound constraint for QN2
@@ -94,12 +94,29 @@ constraints = [
     {'type': 'ineq', 'fun': bound_QC_upper}    # QC upper bound
 ]
 
+options = {
+    'maxiter': 10000,
+    'tol': 1e-2
+}
+
 # Solving the optimization problem with COBYLA
-result = minimize(cost, x0_scaled, method='COBYLA', constraints=constraints, options={'disp': True})
+result = minimize(cost, x0_scaled, method='COBYLA', constraints=constraints, options=options)
 
 # Rescale the results
 opt_scaled = result.x
 opt = [opt_scaled[i] * scale_factors[i] for i in range(3)]
 
-# Output results
+# Output results and check maxcv (maximum constraint violation)
+opt = result.x
+cost_min = result.fun
+num_function_evals = result.nfev
+success = result.success
+message = result.message
+maxcv = result.maxcv  # Magnitude of constraint violation
+
 print('Optimal values: ', opt)
+print('Minimum cost: ', cost_min)
+print('Number of function evaluations: ', num_function_evals)
+print('Optimization success: ', success)
+print('Message: ', message)
+print('Maximum constraint violation (maxcv): ', maxcv)

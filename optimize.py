@@ -23,7 +23,7 @@ def simulate(x):
     cH2S_ppm = cH2S*1E6
     cNH3_ppm = cNH3*1E6
     y = cH2S_ppm, cNH3_ppm
-    print(f"Simulating with QN1: {QN1}, QN2: {QN2}, QC: {QC} -> H2S: {cH2S_ppm}, NH3: {cNH3_ppm}")
+    print(f"Simulating with QN1: {round(QN1,2)}, QN2: {round(QN2,2)}, QC: {round(QC,2)} -> H2S: {round(cH2S_ppm,2)}, NH3: {round(cNH3_ppm,2)}")
     total_cost = QN1 + QN2 + QC
     print(f"Total Cost: {total_cost}")
     return y
@@ -37,28 +37,34 @@ def cost(x):
 # Constraint 1
 def constraint1(x):
     cH2S_ppm, _ = simulate(x)
-    return cH2S_ppm - 0.2 # >= 0.2ppm
+    return 0.2 - cH2S_ppm # >=0
     
 # Constraint 2
 def constraint2(x):
     _, cNH3_ppm = simulate(x)
-    return cNH3_ppm - 15  # >= 15ppm
+    return 15 - cNH3_ppm # >=0
 
 # Initial guess
 x0 = [560000, 950000, 3]
 
 # Constraints as a dictionary
 constraints = [{'type': 'ineq', 'fun': constraint1}]
-constraints = [{'type': 'ineq', 'fun': constraint1}]
+constraints = [{'type': 'ineq', 'fun': constraint2}]
 
 # Bounds
-bounds = [(520000, 600000), (900000, 1200000), (1,5)]
+bounds = [(400000, 600000), (700000, 1200000), (3,3)]
 
 # Solving the optimization problem
-#result = minimize(cost, x0, method='trust-constr', bounds=bounds, constraints=constraints)
-result = minimize(cost, x0, method='SLSQP', bounds=bounds, constraints=constraints)
+#result = minimize(cost, x0, method='trust-constr', bounds=bounds, constraints=constraints, options={'maxiter': 1000})
+result = minimize(cost, x0, method='SLSQP', bounds=bounds, constraints=constraints, options={'maxiter': 1000})
 
 # Output results
 opt = result.x
 cost_min = result.fun
+num_iterations = result.nit
+num_function_evals = result.nfev
+
 print('Optimal values: ', opt)
+print('Minimum cost: ', cost_min)
+print('Number of iterations: ', num_iterations)
+print('Number of objective function evaluations: ', num_function_evals)
