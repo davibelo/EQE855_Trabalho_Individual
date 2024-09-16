@@ -6,17 +6,27 @@ file = r"RECAP_revK.bkp"
 aspen_Path = os.path.abspath(file)
 
 print('Connecting to the Aspen Plus... Please wait ')
-Application = win32.Dispatch('Apwn.Document') # Registered name of Aspen Plus
+Application = win32.Dispatch('Apwn.Document')  # Registered name of Aspen Plus
 print('Connected!')
 
 Application.InitFromArchive2(aspen_Path)
 Application.visible = 0
+
+# Create and open log file
+script_name = os.path.splitext(os.path.basename(__file__))[0]
+log_file_name = script_name + '.log'
+log_file_path = os.path.join(os.getcwd(), log_file_name)
+log_file = open(log_file_path, 'w')
 
 # Initial guess
 x0 = [560000, 950000, 3]
 
 # Scaling factors
 scale_factors = [1e5, 1e5, 1]  # Scaling for QN1, QN2, QC
+
+def log_message(message):
+    log_file.write(message + '\n')
+    print(message)
 
 def simulate(x_scaled, print_temperature: bool = False):
     x = [x_scaled[0] * scale_factors[0], x_scaled[1] * scale_factors[1], x_scaled[2] * scale_factors[2]]
@@ -30,12 +40,13 @@ def simulate(x_scaled, print_temperature: bool = False):
     cH2S_ppm = cH2S * 1E6
     cNH3_ppm = cNH3 * 1E6
     y = cH2S_ppm, cNH3_ppm
-    print(f"Simulating with QN1: {round(QN1,0)}, QN2: {round(QN2,0)}, QC: {round(QC,2)} -> H2S: {round(cH2S_ppm,3)}, NH3: {round(cNH3_ppm,3)}")
+    message = f"Simulating with QN1: {round(QN1,0)}, QN2: {round(QN2,0)}, QC: {round(QC,2)} -> H2S: {round(cH2S_ppm,3)}, NH3: {round(cNH3_ppm,3)}"
+    log_message(message)
     if print_temperature:
         T_bottom_N640 = Application.Tree.FindNode(r"\Data\Blocks\N-640\Output\B_TEMP\5").Value
         T_bottom_N641 = Application.Tree.FindNode(r"\Data\Blocks\N-641\Output\B_TEMP\6").Value
         T_top_N641 = Application.Tree.FindNode(r"\Data\Blocks\N-641\Output\B_TEMP\2").Value
-        print(f"Temperatures: ", T_bottom_N640, T_bottom_N641, T_top_N641)
+        log_message(f"Temperatures: {T_bottom_N640}, {T_bottom_N641}, {T_top_N641}")
     return y
 
 # Objective function to minimize (with scaling)
@@ -47,7 +58,7 @@ def cost(x_scaled):
 # Constraint 1 (H2S PPM <= 0.2)
 def constraint1(x_scaled):
     cH2S_ppm, _ = simulate(x_scaled)
-    return 0.2 - cH2S_ppm # >=0
+    return 0.2 - cH2S_ppm  # >=0
 
 # Constraint 2 (NH3 PPM <= 15)
 def constraint2(x_scaled):
@@ -112,18 +123,21 @@ opt_scaled = result.x
 opt = [opt_scaled[i] * scale_factors[i] for i in range(3)]
 
 # Output results and check maxcv (maximum constraint violation)
-opt = result.x
 cost_min = result.fun
 num_function_evals = result.nfev
 success = result.success
 message = result.message
 maxcv = result.maxcv  # Magnitude of constraint violation
 
-print('Optimal values: ', opt)
-print('Minimum cost: ', cost_min)
-print('Number of function evaluations: ', num_function_evals)
-print('Optimization success: ', success)
-print('Message: ', message)
-print('Maximum constraint violation (maxcv): ', maxcv)
+log_message(f'Optimal values: {opt}')
+log_message(f'Minimum cost: {cost_min}')
+log_message(f'Number of function evaluations: {num_function_evals}')
+log_message(f'Optimization success: {success}')
+log_message(f'Message: {message}')
+log_message(f'Maximum constraint violation (maxcv): {maxcv}')
 
-simulate(opt, print_temperature=True)
+# Final simulation with optimal values
+simulate(opt_scaled, print_temperature=True)
+
+# Close log file
+log_file.close()
