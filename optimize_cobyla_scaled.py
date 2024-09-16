@@ -1,6 +1,9 @@
 import os
+import numpy as np
 import win32com.client as win32
 from scipy.optimize import minimize
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 file = r"RECAP_revK.bkp"
 aspen_Path = os.path.abspath(file)
@@ -23,6 +26,10 @@ x0 = [560000, 950000, 3]
 
 # Scaling factors
 scale_factors = [1e5, 1e5, 1]  # Scaling for QN1, QN2, QC
+
+# Lists to store non-scaled x values and corresponding objective function values
+x_values = []
+objective_values = []
 
 def log_message(message):
     log_file.write(message + '\n')
@@ -53,6 +60,11 @@ def simulate(x_scaled, print_temperature: bool = False):
 def cost(x_scaled):
     x = [x_scaled[0] * scale_factors[0], x_scaled[1] * scale_factors[1], x_scaled[2] * scale_factors[2]]
     total_cost = x[0] + x[1] + x[2]
+    
+    # Store the non-scaled x values and total cost
+    x_values.append(x)  # Store non-scaled x
+    objective_values.append(total_cost)  # Store objective function value
+    
     return total_cost
 
 # Constraint 1 (H2S PPM <= 0.2)
@@ -141,3 +153,27 @@ simulate(opt_scaled, print_temperature=True)
 
 # Close log file
 log_file.close()
+# Plot the results (3D plot of QN1, QN2, and objective function)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Convert x_values to a format that can be plotted (split QN1, QN2)
+QN1_values = [x[0] for x in x_values]
+QN2_values = [x[1] for x in x_values]
+QC_values = [x[2] for x in x_values]
+
+# Create the 3D scatter plot
+ax.scatter(QN1_values, QN2_values, objective_values, c='r', marker='o')
+ax.set_xlabel('QN1')
+ax.set_ylabel('QN2')
+ax.set_zlabel('Objective Function (Total Cost)')
+
+# Save the figure with the script name
+figure_name = script_name + '_3d_plot.png'
+figure_path = os.path.join(os.getcwd(), figure_name)
+plt.savefig(figure_path)
+
+# Display the plot (optional)
+plt.show()
+
+print(f'3D plot saved as: {figure_path}')
