@@ -72,7 +72,13 @@ def cost_with_penalty(x_scaled):
         penalty += (cNH3_ppm - 15)**2  # Penalty for NH3 violation
     
     # Total objective function is the cost plus penalties
-    return total_cost + penalty * 1e6  # Scaling factor for penalties
+    total_cost_with_penalty = total_cost + penalty * 1e6
+
+    # Store the non-scaled x values and total cost with penalty
+    x_values.append(x)  # Store non-scaled x values
+    objective_values.append(total_cost_with_penalty)  # Store objective function value with penalty
+
+    return total_cost_with_penalty  # Scaling factor for penalties
 
 # Initial guess with scaling
 x0_scaled = [x0[i] / scale_factors[i] for i in range(3)]

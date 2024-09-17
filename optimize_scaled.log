@@ -1,0 +1,28 @@
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.632
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 453910.0, QN2: 703910.0, QC: 2.0 -> H2S: 3.797, NH3: 91.894
+Simulating with QN1: 453910.0, QN2: 703910.0, QC: 2.0 -> H2S: 3.797, NH3: 91.894
+Simulating with QN1: 453910.0, QN2: 703910.0, QC: 2.0 -> H2S: 3.797, NH3: 91.894
+Simulating with QN1: 453910.0, QN2: 703910.0, QC: 2.0 -> H2S: 3.906, NH3: 91.731
+Simulating with QN1: 453910.0, QN2: 703910.0, QC: 2.0 -> H2S: 4.03, NH3: 91.571
+Simulating with QN1: 453910.0, QN2: 703910.0, QC: 2.0 -> H2S: 3.86, NH3: 91.791
+Simulating with QN1: 453910.0, QN2: 703910.0, QC: 2.0 -> H2S: 3.718, NH3: 92.076
+Simulating with QN1: 453910.0, QN2: 703910.0, QC: 2.0 -> H2S: 3.614, NH3: 92.223
+Simulating with QN1: 453910.0, QN2: 703910.0, QC: 2.0 -> H2S: 3.756, NH3: 91.995
+Simulating with QN1: 453910.0, QN2: 703910.0, QC: 2.0 -> H2S: 3.677, NH3: 92.112
+Optimal values: [np.float64(453909.96762667777), np.float64(703909.5303072827), np.float64(2.0)]
+Minimum cost: 1157821.4979339605
+Number of iterations: 6
+Number of function evaluations: 8
+Simulating with QN1: 453910.0, QN2: 703910.0, QC: 2.0 -> H2S: 3.828, NH3: 91.817
+Temperatures: 160.057747, 107.951054, 103.589976
