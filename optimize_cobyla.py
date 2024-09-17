@@ -59,12 +59,10 @@ def simulate(x_scaled, print_temperature: bool = False):
 # Objective function to minimize (with scaling)
 def cost(x_scaled):
     x = [x_scaled[0] * scale_factors[0], x_scaled[1] * scale_factors[1], x_scaled[2] * scale_factors[2]]
-    total_cost = x[0] + x[1] + x[2]
-    
+    total_cost = x[0] + x[1] + x[2]    
     # Store the non-scaled x values and total cost
     x_values.append(x)  # Store non-scaled x
     objective_values.append(total_cost)  # Store objective function value
-    
     return total_cost
 
 # Constraint 1 (H2S PPM <= 0.2)

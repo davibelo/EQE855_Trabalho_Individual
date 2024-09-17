@@ -63,21 +63,20 @@ def simulate(x_scaled, print_temperature: bool = False):
 def cost(x_scaled):
     x = [x_scaled[0] * scale_factors[0], x_scaled[1] * scale_factors[1], x_scaled[2] * scale_factors[2]]
     total_cost = x[0] + x[1] + x[2]
-
     # Store the non-scaled x values and total cost
     x_values.append(x)  # Store non-scaled x
     objective_values.append(total_cost)  # Store objective function value
     return total_cost
 
-# Constraint 1 (with scaling)
+# Constraint 1 (H2S PPM <= 0.2)
 def constraint1(x_scaled):
     cH2S_ppm, _ = simulate(x_scaled)
-    return 0.2 - cH2S_ppm  # <= 0.2ppm
-    
-# Constraint 2 (with scaling)
+    return 0.2 - cH2S_ppm  # >=0
+
+# Constraint 2 (NH3 PPM <= 15)
 def constraint2(x_scaled):
     _, cNH3_ppm = simulate(x_scaled)
-    return 15 - cNH3_ppm # <= 15ppm
+    return 15 - cNH3_ppm # # >=0
 
 # Initial guess (with scaling)
 x0_scaled = [x0[i] / scale_factors[i] for i in range(3)]
@@ -86,10 +85,13 @@ x0_scaled = [x0[i] / scale_factors[i] for i in range(3)]
 bounds_scaled = [(low / scale_factors[i], high / scale_factors[i]) for i, (low, high) in enumerate(bounds)]
 
 # Constraints as a dictionary
-constraints = [{'type': 'ineq', 'fun': constraint1}, {'type': 'ineq', 'fun': constraint2}]
+constraints = [
+    {'type': 'ineq', 'fun': constraint1},
+    {'type': 'ineq', 'fun': constraint2}
+]
 
 # Solving the optimization problem
-result = minimize(cost, x0_scaled, method='SLSQP', bounds=bounds_scaled, constraints=constraints, options={'ftol': 1e-6})
+result = minimize(cost, x0_scaled, method='SLSQP', bounds=bounds_scaled, constraints=constraints, options={'ftol': 1e-8, 'disp': True})
 # result = minimize(cost, x0_scaled, method='trust-constr', bounds=bounds_scaled, constraints=constraints)
 
 # Rescale the results
