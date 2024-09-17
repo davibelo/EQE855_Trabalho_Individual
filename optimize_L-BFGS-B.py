@@ -121,6 +121,9 @@ simulate(opt_scaled, print_temperature=True)
 # Close log file
 log_file.close()
 
+# Close Aspen Plus
+Application.Quit()
+
 # Convert x_values to a format that can be plotted (split QN1, QN2, QC)
 QN1_values = [x[0] for x in x_values]
 QN2_values = [x[1] for x in x_values]
