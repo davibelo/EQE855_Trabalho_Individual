@@ -162,34 +162,44 @@ QC_values = [x[2] for x in x_values]
 # Create a single figure with 3 subplots
 fig = plt.figure(figsize=(18, 6))
 
+# Custom angles for the plots
+elev_angle = 30 # Elevation angle (default is 30 degrees)
+azim_angle = 110 # Azimuth angle (default is 120 degrees)
+
+# Padding value between axis tick values and axis titles
+axis_labelpad = 10
+
 # Plot 1: QN1 vs QN2 vs Objective Function
 ax1 = fig.add_subplot(131, projection='3d')
 ax1.plot(QN1_values, QN2_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
 ax1.scatter(opt[0], opt[1], cost_min, color='blue', s=100, label='Optimal Point')
-ax1.set_xlabel('QN1')
-ax1.set_ylabel('QN2')
-ax1.set_zlabel('Objective Function (Total Cost)')
-ax1.set_title('QN1 vs QN2 vs Objective Function', pad=20)  # Add padding to title
+ax1.set_xlabel('QN1', labelpad=axis_labelpad)
+ax1.set_ylabel('QN2', labelpad=axis_labelpad)
+ax1.set_zlabel('Cost', labelpad=axis_labelpad)
+ax1.set_title('QN1 vs QN2 vs Cost', pad=20)  # Add padding to title
+ax1.view_init(elev=elev_angle, azim=azim_angle)  # Set custom view angles
 ax1.legend()
 
 # Plot 2: QN1 vs QC vs Objective Function
 ax2 = fig.add_subplot(132, projection='3d')
 ax2.plot(QN1_values, QC_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
 ax2.scatter(opt[0], opt[2], cost_min, color='blue', s=100, label='Optimal Point')
-ax2.set_xlabel('QN1')
-ax2.set_ylabel('QC')
-ax2.set_zlabel('Objective Function (Total Cost)')
-ax2.set_title('QN1 vs QC vs Objective Function', pad=20)  # Add padding to title
+ax2.set_xlabel('QN1', labelpad=axis_labelpad)
+ax2.set_ylabel('QC', labelpad=axis_labelpad)
+ax2.set_zlabel('Cost', labelpad=axis_labelpad)
+ax2.set_title('QN1 vs QC vs Cost', pad=20)  # Add padding to title
+ax2.view_init(elev=elev_angle, azim=azim_angle)  # Set custom view angles
 ax2.legend()
 
 # Plot 3: QN2 vs QC vs Objective Function
 ax3 = fig.add_subplot(133, projection='3d')
 ax3.plot(QN2_values, QC_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
 ax3.scatter(opt[1], opt[2], cost_min, color='blue', s=100, label='Optimal Point')
-ax3.set_xlabel('QN2')
-ax3.set_ylabel('QC')
-ax3.set_zlabel('Objective Function (Total Cost)')
-ax3.set_title('QN2 vs QC vs Objective Function', pad=20)  # Add padding to title
+ax3.set_xlabel('QN2', labelpad=axis_labelpad)
+ax3.set_ylabel('QC', labelpad=axis_labelpad)
+ax3.set_zlabel('Cost', labelpad=axis_labelpad)
+ax3.set_title('QN2 vs QC vs Cost', pad=20)  # Add padding to title
+ax3.view_init(elev=elev_angle, azim=azim_angle)  # Set custom view angles
 ax3.legend()
 
 # Adjust the overall layout with margins to avoid trimming
