@@ -1,72 +1,103 @@
-Simulating with QF: 0.5, QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
-Simulating with QF: 0.5, QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
-Simulating with QF: 0.5, QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
-Simulating with QF: 0.5, QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.106, NH3: 13.633
-Simulating with QF: 0.5, QN1: 660000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.024, NH3: 7.697
-Simulating with QF: 0.5, QN1: 660000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.024, NH3: 7.697
-Simulating with QF: 0.5, QN1: 560000.0, QN2: 1050000.0, QC: 3.0 -> H2S: 0.044, NH3: 9.108
-Simulating with QF: 0.5, QN1: 560000.0, QN2: 1050000.0, QC: 3.0 -> H2S: 0.044, NH3: 9.108
-Simulating with QF: 0.5, QN1: 560000.0, QN2: 950000.0, QC: 4.0 -> H2S: 0.108, NH3: 13.625
-Simulating with QF: 0.5, QN1: 560000.0, QN2: 950000.0, QC: 4.0 -> H2S: 0.108, NH3: 13.625
-Simulating with QF: 0.6, QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.126, NH3: 14.606
-Simulating with QF: 0.6, QN1: 560000.0, QN2: 950000.0, QC: 3.0 -> H2S: 0.126, NH3: 14.606
-Simulating with QF: 0.43, QN1: 581719.0, QN2: 877299.0, QC: 3.01 -> H2S: 0.143, NH3: 15.989
-Simulating with QF: 0.43, QN1: 581719.0, QN2: 877299.0, QC: 3.01 -> H2S: 0.143, NH3: 15.989
-Simulating with QF: 0.33, QN1: 584422.0, QN2: 874856.0, QC: 3.01 -> H2S: 0.13, NH3: 15.338
-Simulating with QF: 0.33, QN1: 584422.0, QN2: 874856.0, QC: 3.01 -> H2S: 0.13, NH3: 15.338
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 860285.0, QC: 3.93 -> H2S: 0.119, NH3: 14.868
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 860285.0, QC: 3.93 -> H2S: 0.119, NH3: 14.868
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 855724.0, QC: 4.92 -> H2S: 0.124, NH3: 15.197
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 855724.0, QC: 4.92 -> H2S: 0.124, NH3: 15.197
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 856925.0, QC: 2.93 -> H2S: 0.122, NH3: 15.113
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 856925.0, QC: 2.93 -> H2S: 0.122, NH3: 15.113
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 857915.0, QC: 3.93 -> H2S: 0.121, NH3: 15.04
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 857915.0, QC: 3.93 -> H2S: 0.121, NH3: 15.04
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858332.0, QC: 4.93 -> H2S: 0.12, NH3: 15.011
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858332.0, QC: 4.93 -> H2S: 0.12, NH3: 15.011
-Simulating with QF: 0.29, QN1: 551282.0, QN2: 848322.0, QC: 4.93 -> H2S: 0.249, NH3: 20.835
-Simulating with QF: 0.29, QN1: 551282.0, QN2: 848322.0, QC: 4.93 -> H2S: 0.249, NH3: 20.835
-Simulating with QF: 0.31, QN1: 609078.0, QN2: 809875.0, QC: 4.93 -> H2S: 0.175, NH3: 18.063
-Simulating with QF: 0.31, QN1: 609078.0, QN2: 809875.0, QC: 4.93 -> H2S: 0.175, NH3: 18.063
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858408.0, QC: 3.93 -> H2S: 0.12, NH3: 15.009
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858408.0, QC: 3.93 -> H2S: 0.12, NH3: 15.009
-Simulating with QF: 0.35, QN1: 593354.0, QN2: 865519.0, QC: 4.93 -> H2S: 0.126, NH3: 15.294
-Simulating with QF: 0.35, QN1: 593354.0, QN2: 865519.0, QC: 4.93 -> H2S: 0.126, NH3: 15.294
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858407.0, QC: 3.93 -> H2S: 0.121, NH3: 15.007
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858407.0, QC: 3.93 -> H2S: 0.121, NH3: 15.007
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858470.0, QC: 4.93 -> H2S: 0.121, NH3: 15.002
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858470.0, QC: 4.93 -> H2S: 0.121, NH3: 15.002
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858492.0, QC: 3.93 -> H2S: 0.12, NH3: 15.002
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858492.0, QC: 3.93 -> H2S: 0.12, NH3: 15.002
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858496.0, QC: 4.43 -> H2S: 0.12, NH3: 15.002
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858496.0, QC: 4.43 -> H2S: 0.12, NH3: 15.002
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858495.0, QC: 5.0 -> H2S: 0.12, NH3: 15.002
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858495.0, QC: 5.0 -> H2S: 0.12, NH3: 15.002
-Simulating with QF: 0.3, QN1: 601153.0, QN2: 852414.0, QC: 4.93 -> H2S: 0.126, NH3: 15.337
-Simulating with QF: 0.3, QN1: 601153.0, QN2: 852414.0, QC: 4.93 -> H2S: 0.126, NH3: 15.337
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858458.0, QC: 4.8 -> H2S: 0.12, NH3: 15.007
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858458.0, QC: 4.8 -> H2S: 0.12, NH3: 15.007
-Simulating with QF: 0.3, QN1: 606086.0, QN2: 859738.0, QC: 4.93 -> H2S: 0.109, NH3: 14.419
-Simulating with QF: 0.3, QN1: 606086.0, QN2: 859738.0, QC: 4.93 -> H2S: 0.109, NH3: 14.419
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858471.0, QC: 5.0 -> H2S: 0.121, NH3: 14.998
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858471.0, QC: 5.0 -> H2S: 0.121, NH3: 14.998
-Simulating with QF: 0.31, QN1: 599169.0, QN2: 859353.0, QC: 5.0 -> H2S: 0.122, NH3: 15.027
-Simulating with QF: 0.31, QN1: 599169.0, QN2: 859353.0, QC: 5.0 -> H2S: 0.122, NH3: 15.027
-Simulating with QF: 0.3, QN1: 598478.0, QN2: 858155.0, QC: 5.0 -> H2S: 0.124, NH3: 15.148
-Simulating with QF: 0.3, QN1: 598478.0, QN2: 858155.0, QC: 5.0 -> H2S: 0.124, NH3: 15.148
-Simulating with QF: 0.3, QN1: 600288.0, QN2: 856957.0, QC: 5.0 -> H2S: 0.122, NH3: 15.08
-Simulating with QF: 0.3, QN1: 600288.0, QN2: 856957.0, QC: 5.0 -> H2S: 0.122, NH3: 15.08
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858471.0, QC: 4.98 -> H2S: 0.12, NH3: 15.004
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858471.0, QC: 4.98 -> H2S: 0.12, NH3: 15.004
-Simulating with QF: 0.3, QN1: 599896.0, QN2: 858582.0, QC: 5.0 -> H2S: 0.12, NH3: 14.996
-Simulating with QF: 0.3, QN1: 599896.0, QN2: 858582.0, QC: 5.0 -> H2S: 0.12, NH3: 14.996
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858375.0, QC: 5.0 -> H2S: 0.121, NH3: 15.058
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858375.0, QC: 5.0 -> H2S: 0.121, NH3: 15.058
-Optimal values: [np.float64(600000.0), np.float64(858471.4767427662), np.float64(5.0), np.float64(0.3)]
-Minimum cost: 1458476.4767427663
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0, SF: 0.5 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0, SF: 0.5 -> H2S: 0.106, NH3: 13.633
+Total Cost: 1510003.0
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0, SF: 0.5 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0, SF: 0.5 -> H2S: 0.106, NH3: 13.633
+Total Cost: 1610003.0
+Simulating with QN1: 660000.0, QN2: 950000.0, QC: 3.0, SF: 0.5 -> H2S: 0.024, NH3: 7.697
+Simulating with QN1: 660000.0, QN2: 950000.0, QC: 3.0, SF: 0.5 -> H2S: 0.024, NH3: 7.697
+Total Cost: 1610003.0
+Simulating with QN1: 560000.0, QN2: 1050000.0, QC: 3.0, SF: 0.5 -> H2S: 0.044, NH3: 9.108
+Simulating with QN1: 560000.0, QN2: 1050000.0, QC: 3.0, SF: 0.5 -> H2S: 0.044, NH3: 9.108
+Total Cost: 1510004.0
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 4.0, SF: 0.5 -> H2S: 0.108, NH3: 13.625
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 4.0, SF: 0.5 -> H2S: 0.108, NH3: 13.625
+Total Cost: 1510003.0
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0, SF: 0.6 -> H2S: 0.126, NH3: 14.606
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0, SF: 0.6 -> H2S: 0.126, NH3: 14.606
+Total Cost: 1459021.8515649233
+Simulating with QN1: 581719.0, QN2: 877299.0, QC: 3.01, SF: 0.43 -> H2S: 0.143, NH3: 15.989
+Simulating with QN1: 581719.0, QN2: 877299.0, QC: 3.01, SF: 0.43 -> H2S: 0.143, NH3: 15.989
+Total Cost: 1459280.9644035301
+Simulating with QN1: 584422.0, QN2: 874856.0, QC: 3.01, SF: 0.33 -> H2S: 0.13, NH3: 15.338
+Simulating with QN1: 584422.0, QN2: 874856.0, QC: 3.01, SF: 0.33 -> H2S: 0.13, NH3: 15.338
+Total Cost: 1453497.1346670093
+Simulating with QN1: 600000.0, QN2: 853494.0, QC: 3.02, SF: 0.24 -> H2S: 0.121, NH3: 15.129
+Simulating with QN1: 600000.0, QN2: 853494.0, QC: 3.02, SF: 0.24 -> H2S: 0.121, NH3: 15.129
+Total Cost: 1448775.2094171748
+Simulating with QN1: 600000.0, QN2: 848772.0, QC: 3.05, SF: 0.14 -> H2S: 0.122, NH3: 15.148
+Simulating with QN1: 600000.0, QN2: 848772.0, QC: 3.05, SF: 0.14 -> H2S: 0.122, NH3: 15.148
+Total Cost: 1447714.8228804881
+Simulating with QN1: 600000.0, QN2: 847712.0, QC: 3.08, SF: 0.04 -> H2S: 0.118, NH3: 14.975
+Simulating with QN1: 600000.0, QN2: 847712.0, QC: 3.08, SF: 0.04 -> H2S: 0.118, NH3: 14.975
+Total Cost: 1445159.5381497412
+Simulating with QN1: 600000.0, QN2: 845156.0, QC: 4.01, SF: -0.0 -> H2S: 0.119, NH3: 15.075
+Simulating with QN1: 600000.0, QN2: 845156.0, QC: 4.01, SF: -0.0 -> H2S: 0.119, NH3: 15.075
+Total Cost: 1445186.3861090266
+Simulating with QN1: 600000.0, QN2: 845183.0, QC: 3.01, SF: 0.0 -> H2S: 0.119, NH3: 15.07
+Simulating with QN1: 600000.0, QN2: 845183.0, QC: 3.01, SF: 0.0 -> H2S: 0.119, NH3: 15.07
+Total Cost: 1379362.6086927725
+Simulating with QN1: 554157.0, QN2: 825201.0, QC: 4.01, SF: 0.0 -> H2S: 0.26, NH3: 21.451
+Simulating with QN1: 554157.0, QN2: 825201.0, QC: 4.01, SF: 0.0 -> H2S: 0.26, NH3: 21.449
+Total Cost: 1446207.5249589148
+Simulating with QN1: 600000.0, QN2: 846206.0, QC: 2.01, SF: -0.0 -> H2S: 0.118, NH3: 14.995
+Simulating with QN1: 600000.0, QN2: 846206.0, QC: 2.01, SF: -0.0 -> H2S: 0.118, NH3: 14.995
+Total Cost: 1446034.2848152572
+Simulating with QN1: 600000.0, QN2: 846033.0, QC: 1.01, SF: -0.0 -> H2S: 0.118, NH3: 15.008
+Simulating with QN1: 600000.0, QN2: 846033.0, QC: 1.01, SF: -0.0 -> H2S: 0.118, NH3: 15.008
+Total Cost: 1422002.849101723
+Simulating with QN1: 621113.0, QN2: 800888.0, QC: 2.01, SF: 0.0 -> H2S: 0.143, NH3: 16.698
+Simulating with QN1: 621113.0, QN2: 800888.0, QC: 2.01, SF: 0.0 -> H2S: 0.144, NH3: 16.689
+Total Cost: 1446125.0564883002
+Simulating with QN1: 600000.0, QN2: 846124.0, QC: 1.01, SF: -0.0 -> H2S: 0.118, NH3: 14.999
+Simulating with QN1: 600000.0, QN2: 846124.0, QC: 1.01, SF: -0.0 -> H2S: 0.118, NH3: 14.999
+Total Cost: 1512558.146050894
+Simulating with QN1: 645324.0, QN2: 867233.0, QC: 1.01, SF: -0.0 -> H2S: 0.052, NH3: 10.663
+Simulating with QN1: 645324.0, QN2: 867233.0, QC: 1.01, SF: -0.0 -> H2S: 0.052, NH3: 10.663
+Total Cost: 1442904.685811133
+Simulating with QN1: 527699.0, QN2: 915205.0, QC: 1.0, SF: 0.0 -> H2S: 0.155, NH3: 16.357
+Simulating with QN1: 527699.0, QN2: 915205.0, QC: 1.0, SF: 0.0 -> H2S: 0.156, NH3: 16.355
+Total Cost: 1446698.6702482325
+Simulating with QN1: 600280.0, QN2: 846417.0, QC: 1.01, SF: 0.05 -> H2S: 0.119, NH3: 15.072
+Simulating with QN1: 600280.0, QN2: 846417.0, QC: 1.01, SF: 0.05 -> H2S: 0.119, NH3: 15.069
+Total Cost: 1446167.4238423815
+Simulating with QN1: 599972.0, QN2: 846194.0, QC: 1.13, SF: -0.0 -> H2S: 0.119, NH3: 14.993
+Simulating with QN1: 599972.0, QN2: 846194.0, QC: 1.13, SF: -0.0 -> H2S: 0.119, NH3: 14.993
+Total Cost: 1445936.5716641387
+Simulating with QN1: 600000.0, QN2: 845935.0, QC: 1.26, SF: -0.0 -> H2S: 0.118, NH3: 15.015
+Simulating with QN1: 600000.0, QN2: 845935.0, QC: 1.26, SF: -0.0 -> H2S: 0.118, NH3: 15.015
+Total Cost: 1440071.6725521828
+Simulating with QN1: 605278.0, QN2: 834793.0, QC: 1.0, SF: 0.0 -> H2S: 0.122, NH3: 15.399
+Simulating with QN1: 605278.0, QN2: 834793.0, QC: 1.0, SF: 0.0 -> H2S: 0.124, NH3: 15.386
+Total Cost: 1446196.7573350193
+Simulating with QN1: 600035.0, QN2: 846161.0, QC: 1.01, SF: 0.01 -> H2S: 0.119, NH3: 15.004
+Simulating with QN1: 600035.0, QN2: 846161.0, QC: 1.01, SF: 0.01 -> H2S: 0.119, NH3: 15.003
+Total Cost: 1437821.0349134898
+Simulating with QN1: 594334.0, QN2: 843486.0, QC: 1.01, SF: 0.0 -> H2S: 0.131, NH3: 15.665
+Simulating with QN1: 594334.0, QN2: 843486.0, QC: 1.01, SF: 0.0 -> H2S: 0.131, NH3: 15.666
+Total Cost: 1446101.49588528
+Simulating with QN1: 600000.0, QN2: 846100.0, QC: 1.04, SF: -0.0 -> H2S: 0.118, NH3: 15.005
+Simulating with QN1: 600000.0, QN2: 846100.0, QC: 1.04, SF: -0.0 -> H2S: 0.118, NH3: 15.005
+Total Cost: 1445368.3834962856
+Simulating with QN1: 600660.0, QN2: 844708.0, QC: 1.01, SF: 0.0 -> H2S: 0.119, NH3: 15.044
+Simulating with QN1: 600660.0, QN2: 844708.0, QC: 1.01, SF: 0.0 -> H2S: 0.119, NH3: 15.044
+Total Cost: 1447163.0591851517
+Simulating with QN1: 600708.0, QN2: 846454.0, QC: 1.01, SF: -0.0 -> H2S: 0.117, NH3: 14.92
+Simulating with QN1: 600708.0, QN2: 846454.0, QC: 1.01, SF: -0.0 -> H2S: 0.117, NH3: 14.92
+Total Cost: 1446134.01909414
+Simulating with QN1: 600004.0, QN2: 846129.0, QC: 1.01, SF: 0.0 -> H2S: 0.118, NH3: 15.003
+Simulating with QN1: 600004.0, QN2: 846129.0, QC: 1.01, SF: 0.0 -> H2S: 0.118, NH3: 15.002
+Total Cost: 1446101.743999076
+Simulating with QN1: 600000.0, QN2: 846101.0, QC: 1.0, SF: 0.0 -> H2S: 0.117, NH3: 14.966
+Simulating with QN1: 600000.0, QN2: 846101.0, QC: 1.0, SF: 0.0 -> H2S: 0.118, NH3: 15.005
+Total Cost: 1446005.982064746
+Simulating with QN1: 600000.0, QN2: 846005.0, QC: 1.02, SF: 0.0 -> H2S: 0.118, NH3: 15.013
+Simulating with QN1: 600000.0, QN2: 846005.0, QC: 1.02, SF: 0.0 -> H2S: 0.118, NH3: 15.009
+Optimal values: [np.float64(600000.0), np.float64(846004.9666399432), np.float64(1.0154248029960027), np.float64(2.4820079053470315e-22)]
+Minimum cost: 1446005.982064746
 Number of function evaluations: 31
-Optimization success: True
-Message: Optimization terminated successfully.
-Maximum constraint violation (maxcv): -0.0
-Simulating with QF: 0.3, QN1: 600000.0, QN2: 858471.0, QC: 5.0 -> H2S: 0.121, NH3: 15.01
-Temperatures: 168.692512, 107.977126, 104.287105
+Optimization success: False
+Message: Did not converge to a solution satisfying the constraints. See `maxcv` for magnitude of violation.
+Maximum constraint violation (maxcv): 0.008678700000000816
+Simulating with QN1: 600000.0, QN2: 846005.0, QC: 1.02, SF: 0.0 -> H2S: 0.118, NH3: 15.008
+Temperatures: 168.746004, 107.977129, 104.300585

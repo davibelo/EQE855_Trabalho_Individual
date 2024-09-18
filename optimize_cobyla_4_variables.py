@@ -37,18 +37,18 @@ def log_message(message):
 
 def simulate(x_scaled, print_temperature: bool = False):
     x = [x_scaled[0] * scale_factors[0], x_scaled[1] * scale_factors[1], x_scaled[2] * scale_factors[2], x_scaled[3] * scale_factors[3]]
-    QN1, QN2, QC, QF = x
+    QN1, QN2, QC, SF = x    
     Application.Tree.FindNode(r"\Data\Blocks\N-640\Input\QN").Value = QN1
     Application.Tree.FindNode(r"\Data\Blocks\N-641\Input\QN").Value = QN2
     Application.Tree.FindNode(r"\Data\Blocks\N-641\Input\Q1").Value = QC
-    Application.Tree.FindNode(r"\Data\Blocks\SPLIT1\Input\FRAC\AGUAPR5A").Value = QF
+    Application.Tree.FindNode(r"\Data\Blocks\SPLIT1\Input\FRAC\AGUAPR5A").Value = max(0, SF)
     Application.Engine.Run2()
     cH2S = Application.Tree.FindNode(r"\Data\Streams\AGUAR1\Output\MOLEFRAC\MIXED\H2S").Value
     cNH3 = Application.Tree.FindNode(r"\Data\Streams\AGUAR1\Output\MOLEFRAC\MIXED\NH3").Value
     cH2S_ppm = cH2S * 1E6
     cNH3_ppm = cNH3 * 1E6
     y = cH2S_ppm, cNH3_ppm
-    message = f"Simulating with QF: {round(QF,2)}, QN1: {round(QN1,0)}, QN2: {round(QN2,0)}, QC: {round(QC,2)} -> H2S: {round(cH2S_ppm,3)}, NH3: {round(cNH3_ppm,3)}"
+    message = f"Simulating with QN1: {round(QN1,0)}, QN2: {round(QN2,0)}, QC: {round(QC,2)}, SF: {round(SF,2)} -> H2S: {round(cH2S_ppm,3)}, NH3: {round(cNH3_ppm,3)}"
     log_message(message)
     if print_temperature:
         T_bottom_N640 = Application.Tree.FindNode(r"\Data\Blocks\N-640\Output\B_TEMP\5").Value
@@ -64,6 +64,7 @@ def cost(x_scaled):
     # Store the non-scaled x values and total cost
     x_values.append(x)  # Store non-scaled x
     objective_values.append(total_cost)  # Store objective function value
+    log_message(f"Total Cost: {total_cost}")
     return total_cost
 
 # Constraint 1 (H2S PPM <= 0.2)
@@ -106,15 +107,15 @@ def bound_QC_upper(x_scaled):
     QC_upper = 5
     return (QC_upper / scale_factors[2]) - x_scaled[2]
 
-# Lower bound constraint for QF
-def bound_QF_lower(x_scaled):
-    QC_lower = 0.3
-    return x_scaled[3] - (QC_lower / scale_factors[3])
+# Lower bound constraint for SF
+def bound_SF_lower(x_scaled):
+    SF_lower = 0
+    return x_scaled[3] - (SF_lower / scale_factors[3])
 
-# Upper bound constraint for QF
-def bound_QF_upper(x_scaled):
-    QC_upper = 0.7
-    return (QC_upper / scale_factors[3]) - x_scaled[3]
+# Upper bound constraint for SF
+def bound_SF_upper(x_scaled):
+    SF_upper = 1
+    return (SF_upper / scale_factors[3]) - x_scaled[3]
 
 # Initial guess (with scaling)
 x0_scaled = [x0[i] / scale_factors[i] for i in range(4)]
@@ -129,8 +130,8 @@ constraints = [
     {'type': 'ineq', 'fun': bound_QN2_upper},  # QN2 upper bound
     {'type': 'ineq', 'fun': bound_QC_lower},   # QC lower bound
     {'type': 'ineq', 'fun': bound_QC_upper},   # QC upper bound
-    {'type': 'ineq', 'fun': bound_QF_lower},   # QF lower bound
-    {'type': 'ineq', 'fun': bound_QF_upper}    # QF upper bound
+    {'type': 'ineq', 'fun': bound_SF_lower},   # SF lower bound
+    {'type': 'ineq', 'fun': bound_SF_upper}    # SF upper bound
 ]
 
 options = {
@@ -204,17 +205,6 @@ ax2.set_zlabel('Cost', labelpad=axis_labelpad)
 ax2.set_title('QN1 vs QC vs Cost', pad=20)  # Add padding to title
 ax2.view_init(elev=elev_angle, azim=azim_angle)  # Set custom view angles
 ax2.legend()
-
-# Plot 3: QN2 vs QC vs Objective Function
-ax3 = fig.add_subplot(133, projection='3d')
-ax3.plot(QN2_values, QC_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
-ax3.scatter(opt[1], opt[2], cost_min, color='blue', s=100, label='Optimal Point')
-ax3.set_xlabel('QN2', labelpad=axis_labelpad)
-ax3.set_ylabel('QC', labelpad=axis_labelpad)
-ax3.set_zlabel('Cost', labelpad=axis_labelpad)
-ax3.set_title('QN2 vs QC vs Cost', pad=20)  # Add padding to title
-ax3.view_init(elev=elev_angle, azim=azim_angle)  # Set custom view angles
-ax3.legend()
 
 # Plot 3: QN2 vs QC vs Objective Function
 ax3 = fig.add_subplot(133, projection='3d')
