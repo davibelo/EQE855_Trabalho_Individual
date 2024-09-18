@@ -4,6 +4,7 @@ import win32com.client as win32
 from scipy.optimize import minimize
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+from scipy.interpolate import griddata
 
 file = r"RECAP_revK.bkp"
 aspen_Path = os.path.abspath(file)
@@ -59,7 +60,7 @@ def simulate(x_scaled, print_temperature: bool = False):
 
 # Objective function to minimize (with scaling)
 def cost(x_scaled):
-    x = [x_scaled[0] * scale_factors[0], x_scaled[1] * scale_factors[1], x_scaled[2] * scale_factors[2]]
+    x = [x_scaled[0] * scale_factors[0], x_scaled[1] * scale_factors[1], x_scaled[2] * scale_factors[2], x_scaled[3] * scale_factors[3]]
     total_cost = x[0] + x[1] + x[2]
     # Store the non-scaled x values and total cost
     x_values.append(x)  # Store non-scaled x
@@ -173,49 +174,84 @@ Application.Quit()
 QN1_values = [x[0] for x in x_values]
 QN2_values = [x[1] for x in x_values]
 QC_values = [x[2] for x in x_values]
+SF_values = [x[3] for x in x_values]
 
 # Create a single figure with 3 subplots
-fig = plt.figure(figsize=(18, 6))
+fig = plt.figure(figsize=(36, 12))
 
 # Custom angles for the plots
 elev_angle = 30 # Elevation angle (default is 30 degrees)
-azim_angle = 110 # Azimuth angle (default is 120 degrees)
+azim_angle = 130 # Azimuth angle (default is 120 degrees)
 
 # Padding value between axis tick values and axis titles
 axis_labelpad = 10
+axis_titlepad = 10
 
 # Plot 1: QN1 vs QN2 vs Objective Function
-ax1 = fig.add_subplot(131, projection='3d')
+ax1 = fig.add_subplot(231, projection='3d')
 ax1.plot(QN1_values, QN2_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
 ax1.scatter(opt[0], opt[1], cost_min, color='blue', s=100, label='Optimal Point')
 ax1.set_xlabel('QN1', labelpad=axis_labelpad)
 ax1.set_ylabel('QN2', labelpad=axis_labelpad)
 ax1.set_zlabel('Cost', labelpad=axis_labelpad)
-ax1.set_title('QN1 vs QN2 vs Cost', pad=20)  # Add padding to title
-ax1.view_init(elev=elev_angle, azim=azim_angle)  # Set custom view angles
+ax1.set_title('QN1 vs QN2 vs Cost', pad=axis_titlepad)
+ax1.view_init(elev=elev_angle, azim=azim_angle)
 ax1.legend()
 
 # Plot 2: QN1 vs QC vs Objective Function
-ax2 = fig.add_subplot(132, projection='3d')
+ax2 = fig.add_subplot(232, projection='3d')
 ax2.plot(QN1_values, QC_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
 ax2.scatter(opt[0], opt[2], cost_min, color='blue', s=100, label='Optimal Point')
 ax2.set_xlabel('QN1', labelpad=axis_labelpad)
 ax2.set_ylabel('QC', labelpad=axis_labelpad)
 ax2.set_zlabel('Cost', labelpad=axis_labelpad)
-ax2.set_title('QN1 vs QC vs Cost', pad=20)  # Add padding to title
-ax2.view_init(elev=elev_angle, azim=azim_angle)  # Set custom view angles
+ax2.set_title('QN1 vs QC vs Cost', pad=axis_titlepad)
+ax2.view_init(elev=elev_angle, azim=azim_angle)
 ax2.legend()
 
 # Plot 3: QN2 vs QC vs Objective Function
-ax3 = fig.add_subplot(133, projection='3d')
+ax3 = fig.add_subplot(233, projection='3d')
 ax3.plot(QN2_values, QC_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
 ax3.scatter(opt[1], opt[2], cost_min, color='blue', s=100, label='Optimal Point')
 ax3.set_xlabel('QN2', labelpad=axis_labelpad)
 ax3.set_ylabel('QC', labelpad=axis_labelpad)
 ax3.set_zlabel('Cost', labelpad=axis_labelpad)
-ax3.set_title('QN2 vs QC vs Cost', pad=20)  # Add padding to title
-ax3.view_init(elev=elev_angle, azim=azim_angle)  # Set custom view angles
+ax3.set_title('QN2 vs QC vs Cost', pad=axis_titlepad)
+ax3.view_init(elev=elev_angle, azim=azim_angle)
 ax3.legend()
+
+# Plot 4: QN1 vs SF vs Objective Function
+ax4 = fig.add_subplot(234, projection='3d')
+ax4.plot(QN1_values, SF_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
+ax4.scatter(opt[0], opt[3], cost_min, color='blue', s=100, label='Optimal Point')
+ax4.set_xlabel('QN1', labelpad=axis_labelpad)
+ax4.set_ylabel('SF', labelpad=axis_labelpad)
+ax4.set_zlabel('Cost', labelpad=axis_labelpad)
+ax4.set_title('QN1 vs SF vs Cost', pad=axis_titlepad)
+ax4.view_init(elev=elev_angle, azim=azim_angle)
+ax4.legend()
+
+# Plot 5: QN2 vs SF vs Objective Function
+ax5 = fig.add_subplot(235, projection='3d')
+ax5.plot(QN2_values, SF_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
+ax5.scatter(opt[1], opt[3], cost_min, color='blue', s=100, label='Optimal Point')
+ax5.set_xlabel('QN2', labelpad=axis_labelpad)
+ax5.set_ylabel('SF', labelpad=axis_labelpad)
+ax5.set_zlabel('Cost', labelpad=axis_labelpad)
+ax5.set_title('QN2 vs SF vs Cost', pad=axis_titlepad)
+ax5.view_init(elev=elev_angle, azim=azim_angle)
+ax5.legend()
+
+# Plot 6: QC vs SF vs Objective Function
+ax6 = fig.add_subplot(236, projection='3d')
+ax6.plot(QC_values, SF_values, objective_values, color='red', linestyle='-', marker='o', label='Optimization Path')
+ax6.scatter(opt[2], opt[3], cost_min, color='blue', s=100, label='Optimal Point')
+ax6.set_xlabel('QC', labelpad=axis_labelpad)
+ax6.set_ylabel('SF', labelpad=axis_labelpad)
+ax6.set_zlabel('Cost', labelpad=axis_labelpad)
+ax6.set_title('QC vs SF vs Cost', pad=axis_titlepad)
+ax6.view_init(elev=elev_angle, azim=azim_angle)
+ax6.legend()
 
 # Adjust the overall layout with margins to avoid trimming
 plt.subplots_adjust(left=0.05, right=0.95, top=0.90, bottom=0.10, wspace=0.3)
