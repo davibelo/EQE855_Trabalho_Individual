@@ -5,7 +5,7 @@ from scipy.optimize import minimize
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-file = r"RECAP_revK.bkp"
+file = r"UTAA_revK.bkp"
 aspen_Path = os.path.abspath(file)
 
 print('Connecting to the Aspen Plus... Please wait ')
@@ -41,9 +41,9 @@ def log_message(message):
 def simulate(x_scaled, print_temperature: bool = False):
     x = [x_scaled[0] * scale_factors[0], x_scaled[1] * scale_factors[1], x_scaled[2] * scale_factors[2]]
     QN1, QN2, QC = x
-    Application.Tree.FindNode(r"\Data\Blocks\N-640\Input\QN").Value = QN1
-    Application.Tree.FindNode(r"\Data\Blocks\N-641\Input\QN").Value = QN2
-    Application.Tree.FindNode(r"\Data\Blocks\N-641\Input\Q1").Value = QC
+    Application.Tree.FindNode(r"\Data\Blocks\T1\Input\QN").Value = QN1
+    Application.Tree.FindNode(r"\Data\Blocks\T2\Input\QN").Value = QN2
+    Application.Tree.FindNode(r"\Data\Blocks\T2\Input\Q1").Value = QC
     Application.Engine.Run2()
     cH2S = Application.Tree.FindNode(r"\Data\Streams\AGUAR1\Output\MOLEFRAC\MIXED\H2S").Value
     cNH3 = Application.Tree.FindNode(r"\Data\Streams\AGUAR1\Output\MOLEFRAC\MIXED\NH3").Value
@@ -53,9 +53,9 @@ def simulate(x_scaled, print_temperature: bool = False):
     message = f"Simulating with QN1: {round(QN1,0)}, QN2: {round(QN2,0)}, QC: {round(QC,2)} -> H2S: {round(cH2S_ppm,3)}, NH3: {round(cNH3_ppm,3)}"
     log_message(message)
     if print_temperature:
-        T_bottom_N640 = Application.Tree.FindNode(r"\Data\Blocks\N-640\Output\B_TEMP\5").Value
-        T_bottom_N641 = Application.Tree.FindNode(r"\Data\Blocks\N-641\Output\B_TEMP\6").Value
-        T_top_N641 = Application.Tree.FindNode(r"\Data\Blocks\N-641\Output\B_TEMP\2").Value
+        T_bottom_N640 = Application.Tree.FindNode(r"\Data\Blocks\T1\Output\B_TEMP\5").Value
+        T_bottom_N641 = Application.Tree.FindNode(r"\Data\Blocks\T2\Output\B_TEMP\6").Value
+        T_top_N641 = Application.Tree.FindNode(r"\Data\Blocks\T2\Output\B_TEMP\2").Value
         log_message(f"Temperatures: {T_bottom_N640}, {T_bottom_N641}, {T_top_N641}")
     return y
 

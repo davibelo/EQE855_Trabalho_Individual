@@ -1,7 +1,7 @@
 import os
 import win32com.client as win32
 
-file = r"RECAP_revK.bkp"
+file = r"UTAA_revK.bkp"
 aspen_Path = os.path.abspath(file)
 
 print('Connecting to the Aspen Plus... Please wait ')
@@ -19,13 +19,13 @@ test_mass_frac = Application.Tree.FindNode(r"\Data\Streams\AGUAPR1\Output\MASSFR
 print(f"Mass Fraction H2S before: {test_mass_frac}")
 print(type(test_mass_frac))
 
-test_reboiler_duty = Application.Tree.FindNode(r"\Data\Blocks\N-640\Input\QN").Value
+test_reboiler_duty = Application.Tree.FindNode(r"\Data\Blocks\T1\Input\QN").Value
 print(f"Reboiler Duty before: {test_reboiler_duty}")
 
 # Change variables
 new_reboiler_duty = test_reboiler_duty + 20000
 print(f"Modifying Reboiler Duty to {new_reboiler_duty}")
-Application.Tree.FindNode(r"\Data\Blocks\N-640\Input\QN").Value = new_reboiler_duty
+Application.Tree.FindNode(r"\Data\Blocks\T1\Input\QN").Value = new_reboiler_duty
 
 # Run
 Application.Engine.Run2()
