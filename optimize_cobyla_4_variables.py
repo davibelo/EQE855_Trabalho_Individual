@@ -38,7 +38,7 @@ def log_message(message):
 
 def simulate(x_scaled, print_temperature: bool = False):
     x = [x_scaled[0] * scale_factors[0], x_scaled[1] * scale_factors[1], x_scaled[2] * scale_factors[2], x_scaled[3] * scale_factors[3]]
-    QN1, QN2, QC, SF = x    
+    QN1, QN2, QC, SF = x
     Application.Tree.FindNode(r"\Data\Blocks\T1\Input\QN").Value = QN1
     Application.Tree.FindNode(r"\Data\Blocks\T2\Input\QN").Value = QN2
     Application.Tree.FindNode(r"\Data\Blocks\T2\Input\Q1").Value = QC
