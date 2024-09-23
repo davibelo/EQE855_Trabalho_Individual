@@ -101,3 +101,34 @@ Message: Did not converge to a solution satisfying the constraints. See `maxcv` 
 Maximum constraint violation (maxcv): 0.008678700000000816
 Simulating with QN1: 600000.0, QN2: 846005.0, QC: 1.02, SF: 0.0 -> H2S: 0.118, NH3: 15.008
 Temperatures: 168.746004, 107.977129, 104.300585
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0, SF: 0.5 -> H2S: 0.106, NH3: 13.633
+Simulating with QN1: 660000.0, QN2: 950000.0, QC: 3.0, SF: 0.5 -> H2S: 0.024, NH3: 7.695
+Simulating with QN1: 560000.0, QN2: 1050000.0, QC: 3.0, SF: 0.5 -> H2S: 0.044, NH3: 9.108
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 4.0, SF: 0.5 -> H2S: 0.108, NH3: 13.625
+Simulating with QN1: 560000.0, QN2: 950000.0, QC: 3.0, SF: 0.6 -> H2S: 0.126, NH3: 14.61
+Simulating with QN1: 581719.0, QN2: 877299.0, QC: 3.01, SF: 0.43 -> H2S: 0.143, NH3: 15.989
+Simulating with QN1: 584422.0, QN2: 874856.0, QC: 3.01, SF: 0.33 -> H2S: 0.129, NH3: 15.341
+Simulating with QN1: 600000.0, QN2: 853494.0, QC: 3.02, SF: 0.24 -> H2S: 0.121, NH3: 15.124
+Simulating with QN1: 600000.0, QN2: 848772.0, QC: 3.05, SF: 0.14 -> H2S: 0.121, NH3: 15.148
+Simulating with QN1: 600000.0, QN2: 847712.0, QC: 3.08, SF: 0.04 -> H2S: 0.118, NH3: 14.975
+Simulating with QN1: 600000.0, QN2: 845156.0, QC: 4.01, SF: -0.0 -> H2S: 0.12, NH3: 15.066
+Simulating with QN1: 600000.0, QN2: 845183.0, QC: 3.01, SF: 0.0 -> H2S: 0.12, NH3: 15.066
+Simulating with QN1: 554157.0, QN2: 825201.0, QC: 4.01, SF: 0.0 -> H2S: 0.259, NH3: 21.452
+Simulating with QN1: 600000.0, QN2: 846206.0, QC: 2.01, SF: -0.0 -> H2S: 0.118, NH3: 14.995
+Simulating with QN1: 600000.0, QN2: 846033.0, QC: 1.01, SF: -0.0 -> H2S: 0.118, NH3: 15.008
+Simulating with QN1: 621113.0, QN2: 800888.0, QC: 2.01, SF: 0.0 -> H2S: 0.144, NH3: 16.69
+Simulating with QN1: 600000.0, QN2: 846124.0, QC: 1.01, SF: -0.0 -> H2S: 0.118, NH3: 14.999
+Simulating with QN1: 645324.0, QN2: 867233.0, QC: 1.01, SF: -0.0 -> H2S: 0.052, NH3: 10.663
+Simulating with QN1: 527699.0, QN2: 915205.0, QC: 1.0, SF: 0.0 -> H2S: 0.155, NH3: 16.362
+Simulating with QN1: 600280.0, QN2: 846417.0, QC: 1.01, SF: 0.05 -> H2S: 0.119, NH3: 15.073
+Simulating with QN1: 599972.0, QN2: 846194.0, QC: 1.13, SF: -0.0 -> H2S: 0.119, NH3: 14.993
+Simulating with QN1: 600000.0, QN2: 845935.0, QC: 1.26, SF: -0.0 -> H2S: 0.118, NH3: 15.015
+Simulating with QN1: 605278.0, QN2: 834793.0, QC: 1.0, SF: 0.0 -> H2S: 0.124, NH3: 15.383
+Simulating with QN1: 600035.0, QN2: 846161.0, QC: 1.01, SF: 0.01 -> H2S: 0.119, NH3: 15.004
+Simulating with QN1: 594334.0, QN2: 843486.0, QC: 1.01, SF: 0.0 -> H2S: 0.131, NH3: 15.665
+Simulating with QN1: 600000.0, QN2: 846100.0, QC: 1.04, SF: -0.0 -> H2S: 0.118, NH3: 15.005
+Simulating with QN1: 600660.0, QN2: 844708.0, QC: 1.01, SF: 0.0 -> H2S: 0.119, NH3: 15.044
+Simulating with QN1: 600708.0, QN2: 846454.0, QC: 1.01, SF: -0.0 -> H2S: 0.117, NH3: 14.919
+Simulating with QN1: 600004.0, QN2: 846129.0, QC: 1.01, SF: 0.0 -> H2S: 0.118, NH3: 15.003
+Simulating with QN1: 600000.0, QN2: 846101.0, QC: 1.0, SF: 0.0 -> H2S: 0.117, NH3: 14.966
+Simulating with QN1: 600000.0, QN2: 846005.0, QC: 1.02, SF: 0.0 -> H2S: 0.118, NH3: 15.012

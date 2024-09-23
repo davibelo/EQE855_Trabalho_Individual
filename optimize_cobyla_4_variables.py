@@ -164,12 +164,6 @@ log_message(f'Maximum constraint violation (maxcv): {maxcv}')
 # Final simulation with optimal values
 simulate(opt_scaled, print_temperature=True)
 
-# Close log file
-log_file.close()
-
-# Close Aspen Plus
-Application.Quit()
-
 # Convert x_values to a format that can be plotted (split QN1, QN2, QC)
 QN1_values = [x[0] for x in x_values]
 QN2_values = [x[1] for x in x_values]
@@ -265,3 +259,58 @@ plt.savefig(figure_path, bbox_inches='tight')  # Ensure everything fits in the s
 plt.show()
 
 print(f'3D plots saved as: {figure_path}')
+
+# Extract cH2S_ppm and cNH3_ppm values from simulations
+cH2S_values = []
+cNH3_values = []
+
+for x in x_values:
+    # Scale the x values back to their original scale
+    x_scaled = [x[i] / scale_factors[i] for i in range(len(x))]
+    # Perform the simulation and extract the cH2S and cNH3 values
+    cH2S, cNH3 = simulate(x_scaled, print_temperature=False)
+    cH2S_values.append(cH2S)
+    cNH3_values.append(cNH3)
+
+# Create a new figure with 3 subplots
+fig2, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(12, 18))
+
+# Plot the cost function evolution in the first subplot
+ax1.plot(range(len(objective_values)), objective_values, color='blue', label='Cost Function', marker='o')
+ax1.set_xlabel('Iteration', fontsize=12)
+ax1.set_ylabel('Cost', fontsize=12)
+ax1.set_title('Evolution of Cost Function', fontsize=14)
+ax1.legend(loc='best')
+
+# Plot the cH2S_ppm evolution in the second subplot
+ax2.plot(range(len(cH2S_values)), cH2S_values, color='green', label='cH2S_ppm', marker='x')
+ax2.set_xlabel('Iteration', fontsize=12)
+ax2.set_ylabel('cH2S_ppm', fontsize=12)
+ax2.set_title('Evolution of H2S Concentration (ppm)', fontsize=14)
+ax2.legend(loc='best')
+
+# Plot the cNH3_ppm evolution in the third subplot
+ax3.plot(range(len(cNH3_values)), cNH3_values, color='red', label='cNH3_ppm', marker='x')
+ax3.set_xlabel('Iteration', fontsize=12)
+ax3.set_ylabel('cNH3_ppm', fontsize=12)
+ax3.set_title('Evolution of NH3 Concentration (ppm)', fontsize=14)
+ax3.legend(loc='best')
+
+# Adjust layout to avoid overlapping
+plt.tight_layout()
+
+# Save the figure
+figure_name_evolution = script_name + '_evolution_subplots.png'
+figure_path_evolution = os.path.join(os.getcwd(), figure_name_evolution)
+plt.savefig(figure_path_evolution, bbox_inches='tight')
+
+# Show the figure (optional)
+plt.show()
+
+print(f'Evolution plot saved as: {figure_path_evolution}')
+
+# Close log file
+log_file.close()
+
+# Close Aspen Plus
+Application.Quit()
